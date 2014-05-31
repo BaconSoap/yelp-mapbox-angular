@@ -1,0 +1,33 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "def/",
+  "bundle": "def/definitions.d.ts",
+  "installed": {
+    "angularjs/angular.d.ts": {
+      "commit": "5b24e50a9a3076a596fc497ee6504a970e853e0f"
+    },
+    "jquery/jquery.d.ts": {
+      "commit": "5b24e50a9a3076a596fc497ee6504a970e853e0f"
+    },
+    "angular-ui/angular-ui-router.d.ts": {
+      "commit": "5b24e50a9a3076a596fc497ee6504a970e853e0f"
+    },
+    "chai/chai.d.ts": {
+      "commit": "5b24e50a9a3076a596fc497ee6504a970e853e0f"
+    },
+    "mocha/mocha.d.ts": {
+      "commit": "5b24e50a9a3076a596fc497ee6504a970e853e0f"
+    },
+    "angularjs/angular-mocks.d.ts": {
+      "commit": "5b24e50a9a3076a596fc497ee6504a970e853e0f"
+    },
+    "angularjs/angular-resource.d.ts": {
+      "commit": "5b24e50a9a3076a596fc497ee6504a970e853e0f"
+    },
+    "leaflet/leaflet.d.ts": {
+      "commit": "5b24e50a9a3076a596fc497ee6504a970e853e0f"
+    }
+  }
+}

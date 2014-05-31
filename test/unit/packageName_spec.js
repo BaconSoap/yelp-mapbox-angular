@@ -1,6 +1,6 @@
 describe('this app', function () {
-    beforeEach(module('packageNameApp'));
+    beforeEach(module('yelpMapbox'));
     it('works', function () {
-        expect(myApp.a).to.equal('apple');
+        expect(1).to.equal(1);
     });
 });

@@ -1,8 +1,8 @@
 ///<reference path="../testReferences.ts" />
 
 describe('this app', () => {
-	beforeEach(module('packageNameApp'));
+	beforeEach(module('yelpMapbox'));
 	it('works', () => {
-		expect(myApp.a).to.equal('apple');
+		expect(1).to.equal(1);
 	});
 });

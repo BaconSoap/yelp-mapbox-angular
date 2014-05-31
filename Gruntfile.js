@@ -1,3 +1,5 @@
+var modRewrite = require('connect-modrewrite');
+
 module.exports = function(grunt) {
 
   grunt.registerTask('showInfo', function() {
@@ -97,7 +99,27 @@ module.exports = function(grunt) {
     connect: {
       server: {
         options: {
-          port: 1337
+          port: 1337,
+          middleware: function (connect, options) {
+            var middlewares = [];
+            var directory = options.directory || options.base[options.base.length - 1];
+
+            // enable Angular's HTML5 mode
+            middlewares.push(modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]']));
+
+            if (!Array.isArray(options.base)) {
+              options.base = [options.base];
+            }
+            options.base.forEach(function(base) {
+              // Serve static files.
+              middlewares.push(connect.static(base));
+            });
+
+            // Make directory browse-able.
+            middlewares.push(connect.directory(directory));
+
+            return middlewares;
+          }
         }
       }
     }
