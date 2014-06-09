@@ -16,7 +16,7 @@ make credentials.js have:
 ```js
 var credentials = {
 	mapbox: {
-		mapKey: 'account.key'
+		mapKey: 'username.key'
 	}	
 };
 ```
