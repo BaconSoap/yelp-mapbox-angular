@@ -1,3 +1,4 @@
+
 var yelpAngularMapbox;
 (function (yelpAngularMapbox) {
     var app = angular.module('yelpMapbox', ['ui.router']);
@@ -21,6 +22,31 @@ var yelpAngularMapbox;
         '$scope', function ($scope) {
             angular.noop();
         }]);
+
+    app.controller('mapCtrl', [
+        '$scope', 'mapService', function ($scope, mapService) {
+            mapService.init().then(function () {
+                console.log('map initialized');
+            });
+        }]);
+
+    var MapService = (function () {
+        function MapService($http, $q) {
+            this.$http = $http;
+            this.$q = $q;
+        }
+        MapService.prototype.init = function () {
+            var deferred = this.$q.defer();
+            var map = L.mapbox.map('map', credentials.mapbox.mapKey);
+            map.on('ready', function () {
+                return deferred.resolve();
+            });
+            return deferred.promise;
+        };
+        return MapService;
+    })();
+
+    app.service('mapService', ['$http', '$q', MapService]);
 })(yelpAngularMapbox || (yelpAngularMapbox = {}));
 ;angular.module('templates-main', ['templates/index.tpl.html', 'templates/overview/overview.tpl.html']);
 
@@ -38,8 +64,8 @@ angular.module("templates/overview/overview.tpl.html", []).run(["$templateCache"
     "				Hello there\n" +
     "			</div>\n" +
     "		</div>\n" +
-    "		<div class=\"col-md-4\">\n" +
-    "			map goes here\n" +
+    "		<div class=\"col-md-4 map-container\" ng-controller=\"mapCtrl\">\n" +
+    "			<div id=\"map\"></div>\n" +
     "		</div>\n" +
     "	</div>\n" +
     "</div>\n" +

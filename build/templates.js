@@ -14,8 +14,8 @@ angular.module("templates/overview/overview.tpl.html", []).run(["$templateCache"
     "				Hello there\n" +
     "			</div>\n" +
     "		</div>\n" +
-    "		<div class=\"col-md-4\">\n" +
-    "			map goes here\n" +
+    "		<div class=\"col-md-4 map-container\" ng-controller=\"mapCtrl\">\n" +
+    "			<div id=\"map\"></div>\n" +
     "		</div>\n" +
     "	</div>\n" +
     "</div>\n" +

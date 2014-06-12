@@ -1,6 +1,8 @@
 ///<reference path="../def/definitions.d.ts" />
 ///<reference path="references.d.ts" />
 
+declare var credentials: any;
+
 module yelpAngularMapbox {
 	var app = angular.module('yelpMapbox', ['ui.router']);
 	app.config(
@@ -22,4 +24,25 @@ module yelpAngularMapbox {
 	app.controller('overviewCtrl', ['$scope', ($scope) => {
 		angular.noop();
 	}]);
+
+	app.controller('mapCtrl', ['$scope', 'mapService', ($scope, mapService) => {
+		mapService.init().then(() => {
+			console.log('map initialized');
+		});
+	}]);
+
+	class MapService {
+		constructor(private $http: ng.IHttpService, private $q: ng.IQService) {
+
+		}
+
+		public init(): ng.IPromise<void> {
+			var deferred = this.$q.defer<void>();
+			var map = L.mapbox.map('map', credentials.mapbox.mapKey);
+			map.on('ready', () => deferred.resolve());
+			return deferred.promise;
+		}
+	}
+
+	app.service('mapService', ['$http', '$q', MapService]);
 }

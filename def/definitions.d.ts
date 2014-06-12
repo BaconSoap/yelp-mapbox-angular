@@ -6,3 +6,4 @@
 /// <reference path="angularjs/angular-mocks.d.ts" />
 /// <reference path="angularjs/angular-resource.d.ts" />
 /// <reference path="leaflet/leaflet.d.ts" />
+/// <reference path="mapbox/mapbox.d.ts" />
